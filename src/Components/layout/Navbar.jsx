@@ -3,7 +3,6 @@ import React from "react";
 import {
   AppBar,
   Toolbar,
-  Box,
   Stack,
   List,
   ListItemButton,
@@ -41,7 +40,7 @@ function Navbar({ title }) {
       <Styledbar>
         <Stack direction="row" alignItems="center">
           <GitHub />
-          <a href="#" style={iconStyle}>
+          <a href="/error" style={iconStyle}>
             {title}
           </a>
         </Stack>

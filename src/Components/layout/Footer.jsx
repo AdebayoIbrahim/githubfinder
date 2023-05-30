@@ -1,7 +1,21 @@
 import React from "react";
+import { Box } from "@mui/material";
+import { FaHashtag } from "react-icons/fa";
 
+const styles = {
+  textAlign: "center",
+  color: "white",
+  padding: "20px",
+  background: "rgb(51 39 39 /.7)",
+};
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <footer style={styles}>
+      <Box>
+        <FaHashtag />
+      </Box>
+    </footer>
+  );
 };
 
 export default Footer;
