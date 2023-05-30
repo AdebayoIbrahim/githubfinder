@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import styled from "@emotion/styled";
 import { GitHub } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Styledbar = styled(Toolbar)({
   display: "flex",
@@ -40,15 +41,15 @@ function Navbar({ title }) {
       <Styledbar>
         <Stack direction="row" alignItems="center">
           <GitHub />
-          <a href="/error" style={iconStyle}>
+          <Link to="/" style={iconStyle}>
             {title}
-          </a>
+          </Link>
         </Stack>
         <List component="div" disablePadding sx={{ display: "flex" }}>
-          <ListItemButton component="a" href="#">
+          <ListItemButton component={Link} to="/">
             <ListText primary="Home" />
           </ListItemButton>
-          <ListItemButton component="a" href="#">
+          <ListItemButton component={Link} to="/about">
             <ListText primary="About" />
           </ListItemButton>
         </List>
