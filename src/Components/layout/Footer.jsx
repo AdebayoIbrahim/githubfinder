@@ -12,7 +12,8 @@ const Footer = () => {
   return (
     <footer style={styles}>
       <Box>
-        <FaHashtag />
+        <FaHashtag size={30} />
+        <p>Copyright&copy; {new Date().getFullYear()}</p>
       </Box>
     </footer>
   );

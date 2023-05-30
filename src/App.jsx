@@ -1,7 +1,12 @@
 import React from "react";
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import Navbar from "./Components/layout/Navbar";
 import Footer from "./Components/layout/Footer";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Notfound from "./Pages/Notfound";
+
+import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Stack
@@ -12,7 +17,16 @@ function App() {
       }}
     >
       <Navbar />
-      <main>main-content</main>
+
+      <Box ml="auto" mr="auto" pb={10}>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/*" element={<Notfound />}></Route>
+          </Routes>
+        </main>
+      </Box>
       <Footer />
     </Stack>
   );
