@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Spinner from "../layout/spinner";
 import { useNavigate } from "react-router-dom";
+import { Grid } from "@mui/material";
+import UserItem from "./userItem";
 const UserResults = () => {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
@@ -27,19 +29,15 @@ const UserResults = () => {
   return loading ? (
     <Spinner />
   ) : (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        gap: "1rem",
-        alignItems: "center",
-      }}
+    <Grid
+      container
+      spacing={6}
+      sx={{ justifyContent: "center", alignItems: "center" }}
     >
-      {users.map((item) => {
-        return <p>{item.login}</p>;
+      {users.map((item, index) => {
+        return <UserItem key={index} users={item} />;
       })}
-    </div>
+    </Grid>
   );
 };
 
