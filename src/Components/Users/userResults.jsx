@@ -1,8 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import Spinner from "../layout/spinner";
+import { useNavigate } from "react-router-dom";
 const UserResults = () => {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     fetchData();
   }, []);
@@ -13,14 +16,16 @@ const UserResults = () => {
         Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
       },
     });
+    if (!response.ok) {
+      navigate("/error");
+    }
     const result = await response.json();
-    console.log(result);
     setUsers(result);
     setLoading(false);
   };
 
   return loading ? (
-    <h2>Loading....</h2>
+    <Spinner />
   ) : (
     <div
       style={{
