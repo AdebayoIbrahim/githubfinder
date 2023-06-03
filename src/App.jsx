@@ -18,14 +18,7 @@ function App() {
     >
       <Navbar />
 
-      <Box
-        ml="auto"
-        mr="auto"
-        pb={10}
-        mt={3}
-        pt={5}
-        sx={{ textAlign: "center" }}
-      >
+      <Box ml="auto" mr="auto" pb={10} mt={3} pt={5}>
         <main>
           <Routes>
             <Route path="/" element={<Home />}></Route>

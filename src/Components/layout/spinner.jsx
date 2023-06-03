@@ -5,7 +5,7 @@ import { Box, Avatar } from "@mui/material";
 const Spinner = () => {
   return (
     <Box sx={{ marginInline: "auto" }}>
-      <Avatar src={spinner} sx={{ width: "150px", height: "150px" }} />
+      <Avatar src={spinner} sx={{ width: "100px", height: "100px" }} />
     </Box>
   );
 };
