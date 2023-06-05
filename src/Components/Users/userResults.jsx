@@ -5,10 +5,10 @@ import UserItem from "./userItem";
 import GithubContext from "../../Context/github/githubContext";
 
 const UserResults = () => {
-  const { users, loading, fetchData } = useContext(GithubContext);
+  const { users, loading } = useContext(GithubContext);
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, []);
 
   return loading ? (
