@@ -1,31 +1,39 @@
-import React, { createContext, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import React, { createContext, useReducer } from "react";
+import GithubReducer from "./githubReducers";
+
 const GithubContext = createContext();
 
 const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 export const GithubContextProvider = ({ children }) => {
-  const [loading, setLoading] = useState(true);
-  const [users, setUsers] = useState([]);
-  // const navigate = useNavigate()
+  const initialState = {
+    users: [],
+    loading: true,
+  };
+
+  const [state, dispatch] = useReducer(GithubReducer, initialState);
+
   const fetchData = async () => {
     const response = await fetch(`${GITHUB_URL}/users`, {
       headers: {
         Authorization: `token ${GITHUB_TOKEN}`,
       },
     });
-    // if (!response.ok) {
-    //   navigate("/error");
-    // }
+
     const result = await response.json();
-    setUsers(result);
-    setLoading(false);
+
+    dispatch({
+      type: "FETCH_USERS",
+      payload: result,
+    });
   };
 
   return (
     <React.Fragment>
-      <GithubContext.Provider value={{ users, loading, fetchData }}>
+      <GithubContext.Provider
+        value={{ users: state.users, loading: state.loading, fetchData }}
+      >
         {children}
       </GithubContext.Provider>
       ;
