@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Stack, Box, Button } from "@mui/material";
+import GithubContext from "../../Context/github/githubContext";
+import { AiOutlineClear } from "react-icons/ai";
 const UserSearch = () => {
   const [value, setValue] = useState("");
+  const { users } = useContext(GithubContext);
+  //getting if users.length !== 0
+  const userlength = users.length >= 0;
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -11,7 +16,7 @@ const UserSearch = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (value === "") {
-      alert("Please input something");
+      alert("Please input something!");
     } else {
       // send request
     }
@@ -19,7 +24,7 @@ const UserSearch = () => {
 
   return (
     <Box pb={5} pl={7} sx={{ marginInline: "3%" }}>
-      <Stack gap={2} direction="row" width="100%">
+      <Stack gap={2} direction="row" width="100%" alignItems="center">
         <Box flex={{ xs: 15, sm: 5 }}>
           <Box>
             <form onSubmit={handleSubmit}>
@@ -53,9 +58,28 @@ const UserSearch = () => {
           </Box>
         </Box>
         <Box flex={{ xs: 5, sm: 3 }}>
-          <Box>
-            <Button>Clear</Button>
-          </Box>
+          {userlength && (
+            <Box>
+              <Button
+                sx={{
+                  color: "#f32cad",
+                  background: "#42095a",
+                  "&:hover": {
+                    background: "rgb(66 9 90 /.75)",
+                    color: "#ef06a7",
+                  },
+                }}
+                variant="contained"
+              >
+                <AiOutlineClear
+                  color="white"
+                  size={15}
+                  style={{ marginRight: "5px" }}
+                />
+                Clear
+              </Button>
+            </Box>
+          )}
         </Box>
       </Stack>
     </Box>
