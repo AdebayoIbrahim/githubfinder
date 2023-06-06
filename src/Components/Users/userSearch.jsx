@@ -1,9 +1,9 @@
 import React from "react";
-import { Stack, Box, Button, Grid, FormControl } from "@mui/material";
+import { Stack, Box, Button } from "@mui/material";
 const UserSearch = () => {
   return (
-    <Box pb={5} pl={8} sx={{ width: "100%", marginInline: "auto" }}>
-      <Stack gap={2} direction="row">
+    <Box pb={5} pl={7} sx={{ marginInline: "3%" }}>
+      <Stack gap={2} direction="row" width="100%">
         <Box flex={{ xs: 15, sm: 5 }}>
           <Box>
             <form>
@@ -20,7 +20,7 @@ const UserSearch = () => {
                       height: "inherit",
                       borderRadius: "0 5px 5px 0",
                       background: "rgb(51, 39, 39)",
-                      width: "80px",
+                      width: "100px",
                       "&:hover": {
                         background: "rgb(51 39 39 / .7)",
                       },
