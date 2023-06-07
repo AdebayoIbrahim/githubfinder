@@ -24,8 +24,14 @@ const UserSearch = () => {
 
   return (
     <Box pb={5} pl={7} sx={{ marginInline: "3%" }}>
-      <Stack gap={2} direction="row" width="100%" alignItems="center">
-        <Box flex={{ xs: 15, sm: 5 }}>
+      <Stack
+        gap={2}
+        direction="row"
+        width="100%"
+        alignItems="center"
+        sx={{ flexWrap: "wrap" }}
+      >
+        <Box flex={{ md: 4, lg: 6, xl: 7 }}>
           <Box>
             <form onSubmit={handleSubmit}>
               <Box sx={{ width: "100%" }}>
@@ -57,7 +63,7 @@ const UserSearch = () => {
             </form>
           </Box>
         </Box>
-        <Box flex={{ xs: 5, sm: 3 }}>
+        <Box flex={{ md: 1, lg: 2, xl: 6 }}>
           {userlength && (
             <Box>
               <Button
