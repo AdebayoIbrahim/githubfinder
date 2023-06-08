@@ -4,9 +4,9 @@ import GithubContext from "../../Context/github/githubContext";
 import { AiOutlineClear } from "react-icons/ai";
 const UserSearch = () => {
   const [value, setValue] = useState("");
-  const { users } = useContext(GithubContext);
+  const { users, searchUsers } = useContext(GithubContext);
   //getting if users.length !== 0
-  const userlength = users.length >= 0;
+  const userlength = users.length > 0;
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -18,12 +18,12 @@ const UserSearch = () => {
     if (value === "") {
       alert("Please input something!");
     } else {
-      // send request
+      searchUsers(value);
     }
   };
 
   return (
-    <Box pb={5} pl={7} sx={{ marginInline: "3%" }}>
+    <Box pb={5} pl={4} sx={{ marginInline: "3%" }}>
       <Stack
         gap={2}
         direction="row"
@@ -31,7 +31,7 @@ const UserSearch = () => {
         alignItems="center"
         sx={{ flexWrap: "wrap" }}
       >
-        <Box flex={{ md: 4, lg: 6, xl: 7 }}>
+        <Box flex={{ md: 4, lg: 5, xl: 7 }}>
           <Box>
             <form onSubmit={handleSubmit}>
               <Box sx={{ width: "100%" }}>
@@ -63,7 +63,7 @@ const UserSearch = () => {
             </form>
           </Box>
         </Box>
-        <Box flex={{ md: 1, lg: 2, xl: 6 }}>
+        <Box flex={{ md: 1, lg: 4, xl: 6 }}>
           {userlength && (
             <Box>
               <Button
