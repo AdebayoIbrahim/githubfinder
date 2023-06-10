@@ -40,11 +40,23 @@ export const GithubContextProvider = ({ children }) => {
       type: "LOADING",
     });
   };
+  //clearing data in states
+  const clearUsers = () => {
+    dispatch({
+      type: "CLEAR_USERS",
+      data: [],
+    });
+  };
 
   return (
     <React.Fragment>
       <GithubContext.Provider
-        value={{ users: state.users, loading: state.loading, searchUsers }}
+        value={{
+          users: state.users,
+          loading: state.loading,
+          searchUsers,
+          clearUsers,
+        }}
       >
         {children}
       </GithubContext.Provider>

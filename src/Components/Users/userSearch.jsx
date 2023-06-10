@@ -4,7 +4,7 @@ import GithubContext from "../../Context/github/githubContext";
 import { AiOutlineClear } from "react-icons/ai";
 const UserSearch = () => {
   const [value, setValue] = useState("");
-  const { users, searchUsers } = useContext(GithubContext);
+  const { users, searchUsers, clearUsers } = useContext(GithubContext);
   //getting if users.length !== 0
   const userlength = users.length > 0;
 
@@ -20,6 +20,11 @@ const UserSearch = () => {
     } else {
       searchUsers(value);
     }
+  };
+
+  //clear btn function
+  const hanleClick = () => {
+    userlength && clearUsers();
   };
 
   return (
@@ -75,6 +80,7 @@ const UserSearch = () => {
                     color: "#ef06a7",
                   },
                 }}
+                onClick={hanleClick}
                 variant="contained"
               >
                 <AiOutlineClear
