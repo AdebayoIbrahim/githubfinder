@@ -10,6 +10,7 @@ export const GithubContextProvider = ({ children }) => {
   const initialState = {
     users: [],
     loading: false,
+    alert: null,
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
@@ -47,6 +48,13 @@ export const GithubContextProvider = ({ children }) => {
       data: [],
     });
   };
+  //set alert state
+  const setAlert = (msg) => {
+    dispatch({
+      type: "CALL_ALERT",
+      payload: msg,
+    });
+  };
 
   return (
     <React.Fragment>
@@ -54,8 +62,10 @@ export const GithubContextProvider = ({ children }) => {
         value={{
           users: state.users,
           loading: state.loading,
+          alert: state.alert,
           searchUsers,
           clearUsers,
+          setAlert,
         }}
       >
         {children}
