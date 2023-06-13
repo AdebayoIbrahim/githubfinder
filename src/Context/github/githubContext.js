@@ -57,7 +57,7 @@ export const GithubContextProvider = ({ children }) => {
 
     setTimeout(() => {
       dispatch({ type: "CLEAR_ALERT" });
-    }, 3000);
+    }, 2000);
   };
 
   return (
