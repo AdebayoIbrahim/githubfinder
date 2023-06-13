@@ -15,7 +15,7 @@ const UserItem = ({ users: { login, avatar_url } }) => {
             <Typography
               component={Link}
               variant="caption"
-              to={`/users/${login}`}
+              to={`/user/${login}`}
             >
               Visit User Profile
             </Typography>

@@ -14,10 +14,21 @@ const GithubReducer = (state, action) => {
         ...state,
         users: action.data,
       };
+    case "FETCH_USER":
+      return {
+        ...state,
+        user: action.payload,
+      };
     case "CALL_ALERT":
-      return { ...state, alert: action.payload };
+      return {
+        ...state,
+        alert: action.payload,
+      };
     case "CLEAR_ALERT":
-      return { ...state, alert: null };
+      return {
+        ...state,
+        alert: null,
+      };
     default:
       return state;
   }
