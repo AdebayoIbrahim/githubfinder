@@ -52,8 +52,12 @@ export const GithubContextProvider = ({ children }) => {
   const setAlert = (msg) => {
     dispatch({
       type: "CALL_ALERT",
-      payload: msg,
+      payload: { msg },
     });
+
+    setTimeout(() => {
+      dispatch({ type: "CLEAR_ALERT" });
+    }, 3000);
   };
 
   return (
