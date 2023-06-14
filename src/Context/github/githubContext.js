@@ -27,6 +27,14 @@ export const GithubContextProvider = ({ children }) => {
       },
     });
 
+    if (!response.ok) {
+      console.log(response.status);
+      dispatch({
+        type: "NET_ERR",
+      });
+      alert("NetWork Error! ) " + response.status);
+    }
+
     const { items } = await response.json();
 
     dispatch({

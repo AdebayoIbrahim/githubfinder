@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Stack, Box, Avatar, Typography } from "@mui/material";
-import Card from "../shared/Card";
+import { Card } from "../shared/Card";
 import { Link } from "react-router-dom";
 const UserItem = ({ users: { login, avatar_url } }) => {
   return (

@@ -14,10 +14,16 @@ const GithubReducer = (state, action) => {
         ...state,
         users: action.data,
       };
+    case "NET_ERR":
+      return {
+        ...state,
+        loading: false,
+      };
     case "FETCH_USER":
       return {
         ...state,
         user: action.payload,
+        loading: false,
       };
     case "CALL_ALERT":
       return {
