@@ -2,10 +2,8 @@ import React, { useEffect, useContext } from "react";
 import { FaCodepen, FaUsers, FaUserFriends, FaStore } from "react-icons/fa";
 import GithubContext from "../Context/github/githubContext";
 import { Link, useParams } from "react-router-dom";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Typography, Badge, Stack } from "@mui/material";
 import Spinner from "../Components/layout/spinner";
-import styled from "@emotion/styled";
-import { Paper } from "../Components/shared/Card";
 
 const User = () => {
   const { user, getUser, loading } = useContext(GithubContext);
@@ -73,7 +71,58 @@ const User = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid></Grid>
+        <Grid item>
+          <Box pl={3} width="100%">
+            <Stack direction="row" alignItems="center" gap={10}>
+              <h1>{name}</h1>
+
+              <Badge
+                badgeContent={type}
+                sx={{
+                  "& .MuiBadge-badge": {
+                    fontSize: 13,
+                    height: 20,
+                    minWidth: 20,
+                    paddingLeft: "10px",
+                    background: "#106f15",
+                  },
+                }}
+              ></Badge>
+              {hireable && (
+                <Box ml={1}>
+                  <Badge
+                    badgeContent={hireable}
+                    sx={{
+                      "& .MuiBadge-badge": {
+                        fontSize: 13,
+                        height: 20,
+                        minWidth: 20,
+                        background: "#86891a;",
+                      },
+                    }}
+                  ></Badge>
+                </Box>
+              )}
+            </Stack>
+            <Box pt={1}>
+              <Typography component="p" variant="body1">
+                {bio}
+              </Typography>
+            </Box>
+            <Box pt={2}>
+              <Button
+                variant="outlined"
+                component={Link}
+                to={html_url}
+                target="_blank"
+                rel="noreferrer"
+                sx={{}}
+              >
+                Github Profile
+              </Button>
+            </Box>
+          </Box>
+        </Grid>
       </Grid>
     </Box>
   );
