@@ -103,7 +103,6 @@ export const GithubContextProvider = ({ children }) => {
       >
         {children}
       </GithubContext.Provider>
-      ;
     </React.Fragment>
   );
 };

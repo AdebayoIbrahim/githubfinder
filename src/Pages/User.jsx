@@ -4,7 +4,7 @@ import GithubContext from "../Context/github/githubContext";
 import { Link, useParams } from "react-router-dom";
 import { Box, Button, Grid, Typography, Badge, Stack } from "@mui/material";
 import Spinner from "../Components/layout/spinner";
-
+import { Card } from "../Components/shared/Card";
 const User = () => {
   const { user, getUser, loading } = useContext(GithubContext);
   const params = useParams();
@@ -31,7 +31,11 @@ const User = () => {
     public_gists,
     hireable,
   } = user;
-
+  const arr = [
+    { cont: location, val: "location" },
+    { cont: blog, val: "blog" },
+    { cont: twitter_username, val: "twitter" },
+  ];
   return loading ? (
     <Spinner />
   ) : (
@@ -71,7 +75,7 @@ const User = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid item>
+        <Grid item lg={8}>
           <Box pl={3} width="100%">
             <Stack direction="row" alignItems="center" gap={10}>
               <h1>{name}</h1>
@@ -91,7 +95,7 @@ const User = () => {
               {hireable && (
                 <Box ml={1}>
                   <Badge
-                    badgeContent={hireable}
+                    badgeContent="hireable"
                     sx={{
                       "& .MuiBadge-badge": {
                         fontSize: 13,
@@ -120,6 +124,22 @@ const User = () => {
               >
                 Github Profile
               </Button>
+            </Box>
+            <Box pt={2} sx={{ width: "100%" }}>
+              <Stack gap={0} direction="row">
+                {arr.map((item) => {
+                  return (
+                    <Card>
+                      <Box p={2}>
+                        <Typography variant="body2">{item.val}</Typography>
+                        <Typography mt={1} component={Link}>
+                          {item.cont}
+                        </Typography>
+                      </Box>
+                    </Card>
+                  );
+                })}
+              </Stack>
             </Box>
           </Box>
         </Grid>
