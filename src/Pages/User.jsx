@@ -227,7 +227,7 @@ const User = () => {
                       </Typography>
                       <Typography
                         mt={1}
-                        component="a"
+                        component="div"
                         href={`https://twitter.com/${twitter_username}`}
                         target="_blank"
                         rel="noreferrer"
@@ -244,6 +244,9 @@ const User = () => {
             );
           })}
         </Grid>
+      </Box>
+      <Box pt={1}>
+        <h1>Repositories</h1>
       </Box>
     </Box>
   );
