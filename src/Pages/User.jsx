@@ -31,11 +31,12 @@ const User = () => {
     public_gists,
     hireable,
   } = user;
-  // const arr = [
-  //   { cont: location, val: "location" },
-  //   { cont: blog, val: "blog" },
-  //   { cont: twitter_username, val: "twitter" },
-  // ];
+  const moreData = [
+    { cont: followers, val: "followers", icon: FaUsers },
+    { cont: following, val: "following", icon: FaUserFriends },
+    { cont: public_repos, val: "repo", icon: FaCodepen },
+    { cont: public_gists, val: "public gist", icon: FaStore },
+  ];
   return loading ? (
     <Spinner />
   ) : (
@@ -201,26 +202,38 @@ const User = () => {
                     </Paper>
                   </Grid>
                 )}
-
-                {/* {arr.map((item) => {
-                  return (
-                    <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
-                      <Paper>
-                        <Box p={2}>
-                          <Typography variant="body2">{item.val}</Typography>
-                          <Typography mt={1} component={Link}>
-                            {item.cont}
-                          </Typography>
-                        </Box>
-                      </Paper>
-                    </Grid>
-                  );
-                })} */}
               </Grid>
             </Box>
           </Box>
         </Grid>
       </Grid>
+      <Box pt={4}>
+        <Grid container spacing={0}>
+          <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
+            <Paper>
+              <Stack direction="row">
+                <Box p={2}>
+                  <Typography
+                    sx={{ color: "rgb(225 225 225 / .75)" }}
+                    variant="body2"
+                  >
+                    Twitter
+                  </Typography>
+                  <Typography
+                    mt={1}
+                    component="a"
+                    href={`https://twitter.com/${twitter_username}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {twitter_username}
+                  </Typography>
+                </Box>
+              </Stack>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Box>
     </Box>
   );
 };
