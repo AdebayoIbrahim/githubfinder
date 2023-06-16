@@ -39,15 +39,22 @@ const User = () => {
   return loading ? (
     <Spinner />
   ) : (
-    <Box ml={4} pl={6} sx={{}}>
+    <Box ml={{ xs: 0, sm: 4 }} pl={{ xs: 0, sm: 6 }}>
       <Box mb={2}>
         <Button component={Link} to="/">
           Previous
         </Button>
       </Box>
-      <Grid container mb={5} spacing={{ md: 6 }}>
+      <Grid container mb={5} spacing={{ md: 6, xs: 0 }}>
         <Grid item>
-          <Box sx={{ position: "relative" }}>
+          <Box
+            sx={{
+              position: "relative",
+              // left: { xs: "0%", sm: 0 },
+              // top: { xs: "50%", sm: 0 },
+              transform: { xs: "translateX(30%)", sm: "none" },
+            }}
+          >
             <figure>
               <img
                 src={avatar_url}
@@ -77,7 +84,7 @@ const User = () => {
         </Grid>
         <Grid item lg={8}>
           <Box pl={3} width="100%">
-            <Stack direction="row" alignItems="center" gap={10}>
+            <Stack direction="row" alignItems="center" gap={{ xs: 6, sm: 10 }}>
               <h1>{name}</h1>
 
               <Badge
@@ -87,7 +94,7 @@ const User = () => {
                     fontSize: 13,
                     height: 20,
                     minWidth: 20,
-                    paddingLeft: "10px",
+                    paddingLeft: "-10px",
                     background: "#106f15",
                   },
                 }}
@@ -126,20 +133,22 @@ const User = () => {
               </Button>
             </Box>
             <Box pt={2} sx={{ width: "100%" }}>
-              <Stack gap={0} direction="row">
+              <Grid container spacing={0}>
                 {arr.map((item) => {
                   return (
-                    <Card>
-                      <Box p={2}>
-                        <Typography variant="body2">{item.val}</Typography>
-                        <Typography mt={1} component={Link}>
-                          {item.cont}
-                        </Typography>
-                      </Box>
-                    </Card>
+                    <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
+                      <Card>
+                        <Box p={2}>
+                          <Typography variant="body2">{item.val}</Typography>
+                          <Typography mt={1} component={Link}>
+                            {item.cont}
+                          </Typography>
+                        </Box>
+                      </Card>
+                    </Grid>
                   );
                 })}
-              </Stack>
+              </Grid>
             </Box>
           </Box>
         </Grid>
