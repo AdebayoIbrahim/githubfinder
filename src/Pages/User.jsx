@@ -41,7 +41,7 @@ const User = () => {
     <Spinner />
   ) : (
     <Box ml={{ xs: 0, sm: 4 }} pl={{ xs: 0, sm: 6 }}>
-      <Box mb={2}>
+      <Box mb={1}>
         <Button component={Link} to="/">
           Previous
         </Button>
@@ -207,31 +207,36 @@ const User = () => {
           </Box>
         </Grid>
       </Grid>
-      <Box pt={4}>
+      <Box pt={1}>
         <Grid container spacing={0}>
-          <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
-            <Paper>
-              <Stack direction="row">
-                <Box p={2}>
-                  <Typography
-                    sx={{ color: "rgb(225 225 225 / .75)" }}
-                    variant="body2"
-                  >
-                    Twitter
-                  </Typography>
-                  <Typography
-                    mt={1}
-                    component="a"
-                    href={`https://twitter.com/${twitter_username}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {twitter_username}
-                  </Typography>
-                </Box>
-              </Stack>
-            </Paper>
-          </Grid>
+          {moreData.map((datas) => {
+            return (
+              <Grid item xl={2} lg={3} md={4} sm={6} xs={12}>
+                <Paper>
+                  <Stack direction="row" justifyContent="space-between">
+                    <Box p={2}>
+                      <Typography
+                        sx={{ color: "rgb(225 225 225 / .75)" }}
+                        variant="body2"
+                      >
+                        {datas.val}
+                      </Typography>
+                      <Typography
+                        mt={1}
+                        component="a"
+                        href={`https://twitter.com/${twitter_username}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {datas.cont}
+                      </Typography>
+                    </Box>
+                    <Box pr={3}>{<datas.icon size={30} />}</Box>
+                  </Stack>
+                </Paper>
+              </Grid>
+            );
+          })}
         </Grid>
       </Box>
     </Box>
