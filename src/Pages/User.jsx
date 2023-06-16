@@ -213,7 +213,11 @@ const User = () => {
             return (
               <Grid item xl={2} lg={3} md={4} sm={6} xs={12}>
                 <Paper>
-                  <Stack direction="row" justifyContent="space-between">
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                  >
                     <Box p={2}>
                       <Typography
                         sx={{ color: "rgb(225 225 225 / .75)" }}
@@ -231,7 +235,9 @@ const User = () => {
                         {datas.cont}
                       </Typography>
                     </Box>
-                    <Box pr={3}>{<datas.icon size={30} />}</Box>
+                    <Box pr={3}>
+                      {<datas.icon size={30} className="icon" />}
+                    </Box>
                   </Stack>
                 </Paper>
               </Grid>
