@@ -136,7 +136,12 @@ const User = () => {
                   <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
                     <Paper>
                       <Box p={2}>
-                        <Typography variant="body2">location</Typography>
+                        <Typography
+                          sx={{ color: "rgb(225 225 225 / .7)" }}
+                          variant="body2"
+                        >
+                          location
+                        </Typography>
                         <Typography
                           mt={1}
                           component="a"
@@ -154,11 +159,16 @@ const User = () => {
                   <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
                     <Paper>
                       <Box p={2}>
-                        <Typography variant="body2">Website</Typography>
+                        <Typography
+                          sx={{ color: "rgb(225 225 225 / .7)" }}
+                          variant="body2"
+                        >
+                          Website
+                        </Typography>
                         <Typography
                           mt={1}
                           component="a"
-                          href={`${blog}`}
+                          href={`https://www.${blog}`}
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -168,6 +178,30 @@ const User = () => {
                     </Paper>
                   </Grid>
                 )}
+                {twitter_username && (
+                  <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
+                    <Paper>
+                      <Box p={2}>
+                        <Typography
+                          sx={{ color: "rgb(225 225 225 / .75)" }}
+                          variant="body2"
+                        >
+                          Twitter
+                        </Typography>
+                        <Typography
+                          mt={1}
+                          component="a"
+                          href={`https://twitter.com/${twitter_username}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {twitter_username}
+                        </Typography>
+                      </Box>
+                    </Paper>
+                  </Grid>
+                )}
+
                 {/* {arr.map((item) => {
                   return (
                     <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
