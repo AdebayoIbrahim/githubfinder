@@ -13,10 +13,14 @@ const Cardbody = styled(Box)({
     "0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
 });
 const Paperstyled = styled(Box)({
-  // background: "332727d0",
-  width: "500px",
+  background: "332727d0",
+  paddingBlock: ".3em",
+  paddingLeft: "12px",
+  width: "100%",
+  borderRight: "2px solid grey",
+  borderRadius: ".35rem 0 0 .35rem",
   boxShadow:
-    "0px 2px 5px 3px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
+    "0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
 });
 
 const Card = ({ children }) => {

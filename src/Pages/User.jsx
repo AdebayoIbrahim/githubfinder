@@ -4,7 +4,7 @@ import GithubContext from "../Context/github/githubContext";
 import { Link, useParams } from "react-router-dom";
 import { Box, Button, Grid, Typography, Badge, Stack } from "@mui/material";
 import Spinner from "../Components/layout/spinner";
-import { Card } from "../Components/shared/Card";
+import { Paper } from "../Components/shared/Card";
 const User = () => {
   const { user, getUser, loading } = useContext(GithubContext);
   const params = useParams();
@@ -31,11 +31,11 @@ const User = () => {
     public_gists,
     hireable,
   } = user;
-  const arr = [
-    { cont: location, val: "location" },
-    { cont: blog, val: "blog" },
-    { cont: twitter_username, val: "twitter" },
-  ];
+  // const arr = [
+  //   { cont: location, val: "location" },
+  //   { cont: blog, val: "blog" },
+  //   { cont: twitter_username, val: "twitter" },
+  // ];
   return loading ? (
     <Spinner />
   ) : (
@@ -50,8 +50,6 @@ const User = () => {
           <Box
             sx={{
               position: "relative",
-              // left: { xs: "0%", sm: 0 },
-              // top: { xs: "50%", sm: 0 },
               transform: { xs: "translateX(30%)", sm: "none" },
             }}
           >
@@ -84,7 +82,7 @@ const User = () => {
         </Grid>
         <Grid item lg={8}>
           <Box pl={3} width="100%">
-            <Stack direction="row" alignItems="center" gap={{ xs: 6, sm: 10 }}>
+            <Stack direction="row" alignItems="center" gap={{ xs: 6, sm: 7 }}>
               <h1>{name}</h1>
 
               <Badge
@@ -134,20 +132,56 @@ const User = () => {
             </Box>
             <Box pt={2} sx={{ width: "100%" }}>
               <Grid container spacing={0}>
-                {arr.map((item) => {
+                {location && (
+                  <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
+                    <Paper>
+                      <Box p={2}>
+                        <Typography variant="body2">location</Typography>
+                        <Typography
+                          mt={1}
+                          component="a"
+                          href={`https://www.google.ng/maps/place/${location}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {location}
+                        </Typography>
+                      </Box>
+                    </Paper>
+                  </Grid>
+                )}
+                {blog && (
+                  <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
+                    <Paper>
+                      <Box p={2}>
+                        <Typography variant="body2">Website</Typography>
+                        <Typography
+                          mt={1}
+                          component="a"
+                          href={`${blog}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {blog}
+                        </Typography>
+                      </Box>
+                    </Paper>
+                  </Grid>
+                )}
+                {/* {arr.map((item) => {
                   return (
                     <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
-                      <Card>
+                      <Paper>
                         <Box p={2}>
                           <Typography variant="body2">{item.val}</Typography>
                           <Typography mt={1} component={Link}>
                             {item.cont}
                           </Typography>
                         </Box>
-                      </Card>
+                      </Paper>
                     </Grid>
                   );
-                })}
+                })} */}
               </Grid>
             </Box>
           </Box>
