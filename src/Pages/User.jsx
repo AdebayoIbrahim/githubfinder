@@ -44,7 +44,7 @@ const User = () => {
   return loading ? (
     <Spinner />
   ) : (
-    <Box ml={{ xs: 0, sm: 4 }} pl={{ xs: 0, sm: 6 }}>
+    <Box ml={{ xs: 0, sm: 5 }} mr={{ xs: 0, sm: 4 }} pl={{ xs: 0, sm: 3 }}>
       <Box mb={1}>
         <Button component={Link} to="/">
           Previous

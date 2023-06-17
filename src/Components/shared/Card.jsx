@@ -24,6 +24,17 @@ const Paperstyled = styled(Box)({
   overflow: "hidden",
   textOverflow: "ellipsis",
 });
+const Blockstyled = styled(Box)({
+  background: "332727d0",
+  paddingBlock: ".3em",
+  paddingLeft: "12px",
+  width: "100%",
+  // borderRight: "2px solid grey",
+  borderRadius: ".34rem",
+  boxShadow: "0px 2px 8px -1px rgba(0,0,0,0.2)",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+});
 
 const Card = ({ children }) => {
   return <Cardbody>{children}</Cardbody>;
@@ -32,5 +43,8 @@ const Card = ({ children }) => {
 const Paper = ({ children }) => {
   return <Paperstyled>{children}</Paperstyled>;
 };
+const RepoBlock = ({ children }) => {
+  return <Blockstyled>{children}</Blockstyled>;
+};
 
-export { Card, Paper };
+export { Card, Paper, RepoBlock };

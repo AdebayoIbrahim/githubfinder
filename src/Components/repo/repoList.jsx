@@ -1,17 +1,20 @@
 import React from "react";
 import { Box, Typography, Stack } from "@mui/material";
 import PropTypes from "prop-types";
+import RepoItem from "./repoItem";
 
 const RepoList = ({ repos }) => {
   return (
-    <Box ml={4} pt={3}>
-      <Box pb={1}>
-        <Typography component="h2">Top Repositories</Typography>
+    <Box pt={3}>
+      <Box pt={1}>
+        <Typography component="h1" fontWeight={600} fontSize="1.3rem">
+          Top Repositories
+        </Typography>
       </Box>
-      <Box pt={2}>
-        <Stack direction="column" gap={2}>
+      <Box pt={1}>
+        <Stack direction="column" gap={1}>
           {repos.map((repo, index) => {
-            return <h2 key={index}>{repo.name}</h2>;
+            return <RepoItem repo={repo} key={index} />;
           })}
         </Stack>
       </Box>

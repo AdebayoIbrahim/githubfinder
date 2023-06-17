@@ -64,12 +64,19 @@ export const GithubContextProvider = ({ children }) => {
   //get specific user repositories
   const getUserRepo = async (login) => {
     Startload();
-
-    const response = await fetch(`${GITHUB_URL}/users/${login}/repos`, {
-      headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
-      },
+    const params = new URLSearchParams({
+      per_page: 10,
+      sort: "created",
     });
+
+    const response = await fetch(
+      `${GITHUB_URL}/users/${login}/repos?${params}`,
+      {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+        },
+      }
+    );
 
     const data = await response.json();
     console.log(data);
