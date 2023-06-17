@@ -14,6 +14,7 @@ const User = () => {
   useEffect(() => {
     getUser(params.login);
     getUserRepo(params.login);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Destructuring datas
@@ -60,7 +61,7 @@ const User = () => {
             <figure>
               <img
                 src={avatar_url}
-                alt="image-hero"
+                alt="avatar"
                 style={{
                   height: "300px",
                   width: "100%",
@@ -212,9 +213,9 @@ const User = () => {
       </Grid>
       <Box pt={1}>
         <Grid container spacing={0}>
-          {moreData.map((datas) => {
+          {moreData.map((datas, indx) => {
             return (
-              <Grid item xl={2} lg={3} md={4} sm={6} xs={12}>
+              <Grid item xl={2} lg={3} md={4} sm={6} xs={12} key={indx}>
                 <Paper>
                   <Stack
                     direction="row"

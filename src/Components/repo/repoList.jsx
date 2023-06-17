@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Stack } from "@mui/material";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 const RepoList = ({ repos }) => {
   return (
@@ -10,8 +10,8 @@ const RepoList = ({ repos }) => {
       </Box>
       <Box pt={2}>
         <Stack direction="column" gap={2}>
-          {repos.map((repo) => {
-            <h2>{repo.name}</h2>;
+          {repos.map((repo, index) => {
+            return <h2 key={index}>{repo.name}</h2>;
           })}
         </Stack>
       </Box>
@@ -19,8 +19,8 @@ const RepoList = ({ repos }) => {
   );
 };
 
-// RepoList.propTypes = {
-//   repos: PropTypes.array.isRequired,
-// };
+RepoList.propTypes = {
+  repos: PropTypes.array.isRequired,
+};
 
 export default RepoList;
