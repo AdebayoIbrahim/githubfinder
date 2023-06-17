@@ -35,6 +35,12 @@ const GithubReducer = (state, action) => {
         ...state,
         alert: null,
       };
+    case "FETCH_USER_REPOS":
+      return {
+        ...state,
+        repo: action.payload,
+        loading: false,
+      };
     default:
       return state;
   }

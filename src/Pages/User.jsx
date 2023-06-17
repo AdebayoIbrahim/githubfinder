@@ -1,16 +1,19 @@
 import React, { useEffect, useContext } from "react";
-import { FaCodepen, FaUsers, FaUserFriends, FaStore } from "react-icons/fa";
+import { FaCode, FaUsers, FaUserFriends, FaStore } from "react-icons/fa";
 import GithubContext from "../Context/github/githubContext";
 import { Link, useParams } from "react-router-dom";
 import { Box, Button, Grid, Typography, Badge, Stack } from "@mui/material";
 import Spinner from "../Components/layout/spinner";
 import { Paper } from "../Components/shared/Card";
+import RepoList from "../Components/repo/repoList";
 const User = () => {
-  const { user, getUser, loading } = useContext(GithubContext);
+  const { user, getUser, loading, repo, getUserRepo } =
+    useContext(GithubContext);
   const params = useParams();
 
   useEffect(() => {
     getUser(params.login);
+    getUserRepo(params.login);
   }, []);
 
   //Destructuring datas
@@ -34,7 +37,7 @@ const User = () => {
   const moreData = [
     { cont: followers, val: "followers", icon: FaUsers },
     { cont: following, val: "following", icon: FaUserFriends },
-    { cont: public_repos, val: "repo", icon: FaCodepen },
+    { cont: public_repos, val: "repo", icon: FaCode },
     { cont: public_gists, val: "public gist", icon: FaStore },
   ];
   return loading ? (
@@ -245,9 +248,7 @@ const User = () => {
           })}
         </Grid>
       </Box>
-      <Box pt={1}>
-        <h1>Repositories</h1>
-      </Box>
+      <RepoList repos={repo} />
     </Box>
   );
 };

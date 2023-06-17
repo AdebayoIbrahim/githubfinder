@@ -12,6 +12,7 @@ export const GithubContextProvider = ({ children }) => {
     user: {},
     loading: false,
     alert: null,
+    repo: [],
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
@@ -60,6 +61,24 @@ export const GithubContextProvider = ({ children }) => {
       payload: data,
     });
   };
+  //get specific user repositories
+  const getUserRepo = async (login) => {
+    Startload();
+
+    const response = await fetch(`${GITHUB_URL}/users/${login}/repos`, {
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+      },
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    dispatch({
+      type: "FETCH_USER_REPOS",
+      payload: data,
+    });
+  };
 
   //start loading on fetching data
 
@@ -95,7 +114,9 @@ export const GithubContextProvider = ({ children }) => {
           loading: state.loading,
           alert: state.alert,
           user: state.user,
+          repo: state.repo,
           searchUsers,
+          getUserRepo,
           clearUsers,
           setAlert,
           getUser,
