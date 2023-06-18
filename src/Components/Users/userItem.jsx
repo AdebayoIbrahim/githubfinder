@@ -16,6 +16,7 @@ const UserItem = ({ users: { login, avatar_url } }) => {
               component={Link}
               variant="caption"
               to={`/user/${login}`}
+              sx={{ color: "#e1e1e1b3" }}
             >
               Visit User Profile
             </Typography>
