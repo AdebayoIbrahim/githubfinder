@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Typography, Stack, Button, Badge } from "@mui/material";
 import { RepoBlock } from "../shared/Card";
-import { FaEye, FaInfo, FaStar, FaUtensils } from "react-icons/fa";
+import { FaEye, FaStar, FaUtensils, FaBug } from "react-icons/fa";
+
 import LinkIcon from "@mui/icons-material/Link";
 const RepoItem = ({ repo }) => {
   const {
@@ -38,13 +39,16 @@ const RepoItem = ({ repo }) => {
               badgeContent={watchers_count}
               sx={{
                 "& .MuiBadge-badge": {
+                  minWidth: "20px",
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
                   color: "#d2e509",
                   background: "#4d094d",
-                  padding: "2px",
                 },
               }}
             >
-              <FaEye style={{ fill: "#d2e509" }} size={20} />
+              <FaEye style={{ fill: "#d2e509" }} size={18} />
             </Badge>
           </Box>
           <Box ml={2}>
@@ -52,27 +56,50 @@ const RepoItem = ({ repo }) => {
               badgeContent={stargazers_count}
               sx={{
                 "& .MuiBadge-badge": {
+                  minWidth: "20px",
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
                   color: "#24e524",
                   background: "#4d094d",
-                  padding: "2px",
                 },
               }}
             >
-              <FaStar style={{ fill: "#24e524" }} size={20} />
+              <FaStar style={{ fill: "#24e524" }} size={18} />
             </Badge>
           </Box>
           <Box ml={2}>
             <Badge
-              badgeContent={stargazers_count}
+              badgeContent={open_issues}
               sx={{
                 "& .MuiBadge-badge": {
+                  minWidth: "20px",
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
                   color: "red",
                   background: "#4d094d",
-                  padding: "2px",
                 },
               }}
             >
-              <FaInfo style={{ fill: "red" }} size={20} />
+              <FaBug style={{ fill: "red" }} size={18} />
+            </Badge>
+          </Box>
+          <Box ml={2}>
+            <Badge
+              badgeContent={forks}
+              sx={{
+                "& .MuiBadge-badge": {
+                  minWidth: "20px",
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
+                  color: "#61d0ed",
+                  background: "#4d094d",
+                },
+              }}
+            >
+              <FaUtensils style={{ fill: "#61d0ed" }} size={18} />
             </Badge>
           </Box>
         </Stack>
