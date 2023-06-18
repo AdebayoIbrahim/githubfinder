@@ -18,7 +18,9 @@ const RepoItem = ({ repo }) => {
     <React.Fragment>
       <RepoBlock>
         <Button
-          startIcon={<LinkIcon />}
+          startIcon={
+            <LinkIcon sx={{ fill: "#11bbb8", transform: "rotate(-40deg)" }} />
+          }
           component="a"
           variant="h1"
           mb={1}
