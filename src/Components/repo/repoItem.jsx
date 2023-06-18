@@ -61,6 +61,20 @@ const RepoItem = ({ repo }) => {
               <FaStar style={{ fill: "#24e524" }} size={20} />
             </Badge>
           </Box>
+          <Box ml={2}>
+            <Badge
+              badgeContent={stargazers_count}
+              sx={{
+                "& .MuiBadge-badge": {
+                  color: "red",
+                  background: "#4d094d",
+                  padding: "2px",
+                },
+              }}
+            >
+              <FaInfo style={{ fill: "red" }} size={20} />
+            </Badge>
+          </Box>
         </Stack>
       </RepoBlock>
     </React.Fragment>
