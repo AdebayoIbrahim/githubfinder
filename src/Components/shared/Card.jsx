@@ -26,7 +26,7 @@ const Paperstyled = styled(Box)({
 });
 const Blockstyled = styled(Box)({
   background: "#33272766",
-  paddingBlock: ".3em",
+  paddingBlock: ".4em",
   paddingLeft: "12px",
   width: "100%",
   // borderRight: "2px solid grey",
