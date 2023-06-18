@@ -32,20 +32,36 @@ const RepoItem = ({ repo }) => {
         <Typography component="p" variant="caption" ml={2}>
           {description}
         </Typography>
-        <Box ml={2} pt={1.2}>
-          <Badge
-            badgeContent={watchers_count}
-            sx={{
-              "& .MuiBadge-badge": {
-                color: "#d2e509",
-                background: "#4d094d",
-                padding: "2px",
-              },
-            }}
-          >
-            <FaEye style={{ fill: "#d2e509" }} size={20} />
-          </Badge>
-        </Box>
+        <Stack direction="row" pt={1.2}>
+          <Box ml={2}>
+            <Badge
+              badgeContent={watchers_count}
+              sx={{
+                "& .MuiBadge-badge": {
+                  color: "#d2e509",
+                  background: "#4d094d",
+                  padding: "2px",
+                },
+              }}
+            >
+              <FaEye style={{ fill: "#d2e509" }} size={20} />
+            </Badge>
+          </Box>
+          <Box ml={2}>
+            <Badge
+              badgeContent={stargazers_count}
+              sx={{
+                "& .MuiBadge-badge": {
+                  color: "#24e524",
+                  background: "#4d094d",
+                  padding: "2px",
+                },
+              }}
+            >
+              <FaStar style={{ fill: "#24e524" }} size={20} />
+            </Badge>
+          </Box>
+        </Stack>
       </RepoBlock>
     </React.Fragment>
   );
