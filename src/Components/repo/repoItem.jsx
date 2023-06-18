@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Typography, Stack } from "@mui/material";
+import { Box, Typography, Stack, Button } from "@mui/material";
 import { RepoBlock } from "../shared/Card";
-import { FaEye, FaInfo, FaLink, FaStar, FaUtensils } from "react-icons/fa";
+// import { FaEye, FaInfo, FaLink, FaStar, FaUtensils } from "react-icons/fa";
+import LinkIcon from "@mui/icons-material/Link";
 const RepoItem = ({ repo }) => {
   const {
     name,
@@ -16,9 +17,16 @@ const RepoItem = ({ repo }) => {
   return (
     <React.Fragment>
       <RepoBlock>
-        <Typography component="h2" mb={1}>
+        <Button
+          startIcon={<LinkIcon />}
+          component="a"
+          variant="h1"
+          mb={1}
+          href={html_url}
+          sx={{ textTransform: "lowercase" }}
+        >
           {name}
-        </Typography>
+        </Button>
       </RepoBlock>
     </React.Fragment>
   );
