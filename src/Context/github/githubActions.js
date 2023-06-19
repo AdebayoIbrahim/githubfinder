@@ -20,9 +20,13 @@ export const searchUsers = async (value) => {
 
 //get specific user and repo
 export const getUserAndRepo = async (login) => {
+  const params = new URLSearchParams({
+    per_page: 10,
+    sort: "created",
+  });
   const [user, repo] = await Promise.all([
     githubBase.get(`/users/${login}`),
-    githubBase.get(`users/${login}/repos`),
+    githubBase.get(`users/${login}/repos?${params}`),
   ]);
   return { user: user.data, repo: repo.data };
 };
