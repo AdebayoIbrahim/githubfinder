@@ -25,6 +25,10 @@ export const getUser = async (login) => {
     },
   });
 
+  if (response.status === 400) {
+    window.location.pathname = "./notfound";
+  }
+
   const data = await response.json();
 
   return data;

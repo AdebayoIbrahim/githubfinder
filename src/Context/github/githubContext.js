@@ -13,9 +13,6 @@ export const GithubContextProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
-
-  //clearing data in states
-
   //set alert state
   const setAlert = (msg) => {
     dispatch({
