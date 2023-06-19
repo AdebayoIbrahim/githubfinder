@@ -1,9 +1,9 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { Helmet } from "react-helmet";
 function About() {
   return (
-    <div>
+    <Box sx={{ textAlign: "center" }}>
       <Helmet>
         <title>About</title>
       </Helmet>
@@ -25,7 +25,7 @@ function About() {
           <a href="http://www.traversymedia.com">Brad Traversy</a>
         </Typography>
       </Typography>
-    </div>
+    </Box>
   );
 }
 

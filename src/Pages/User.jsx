@@ -165,7 +165,9 @@ const User = () => {
                     <Paper>
                       <Box p={2}>
                         <Typography
-                          sx={{ color: "rgb(225 225 225 / .7)" }}
+                          sx={{
+                            color: "rgb(225 225 225 / .7)",
+                          }}
                           variant="body2"
                         >
                           Website
@@ -173,9 +175,10 @@ const User = () => {
                         <Typography
                           mt={1}
                           component="a"
-                          href={`https://www.${blog}`}
+                          href={`${blog}`}
                           target="_blank"
                           rel="noreferrer"
+                          sx={{ overflow: "hidden", textOverflow: "ellipsis" }}
                         >
                           {blog}
                         </Typography>

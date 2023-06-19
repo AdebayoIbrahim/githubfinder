@@ -26,6 +26,8 @@ const RepoItem = ({ repo }) => {
           variant="h1"
           mb={1}
           href={html_url}
+          target="_blank"
+          rel="noreferrer"
           sx={{ textTransform: "lowercase" }}
         >
           {name}

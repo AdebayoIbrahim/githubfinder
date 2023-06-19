@@ -2,10 +2,10 @@ import React, { useState, useContext } from "react";
 import { Stack, Box, Button } from "@mui/material";
 import GithubContext from "../../Context/github/githubContext";
 import { AiOutlineClear } from "react-icons/ai";
+import { searchUsers } from "../../Context/github/githubActions";
 const UserSearch = () => {
   const [value, setValue] = useState("");
-  const { users, searchUsers, clearUsers, setAlert } =
-    useContext(GithubContext);
+  const { users, clearUsers, setAlert, dispatch } = useContext(GithubContext);
   //getting if users.length !== 0
   const userlength = users.length > 0;
 
@@ -13,13 +13,20 @@ const UserSearch = () => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (value === "") {
       // alert("Please input something!");
       setAlert("Please input something!");
     } else {
-      searchUsers(value);
+      dispatch({
+        type: "LOADING",
+      });
+      const user = await searchUsers(value);
+      dispatch({
+        type: "FETCH_USERS",
+        payload: user,
+      });
       setValue("");
     }
   };

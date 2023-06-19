@@ -17,33 +17,6 @@ export const GithubContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
-  const searchUsers = async (value) => {
-    Startload();
-    const params = new URLSearchParams({
-      q: value,
-    });
-    const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
-      headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
-      },
-    });
-
-    if (!response.ok) {
-      console.log(response.status);
-      dispatch({
-        type: "NET_ERR",
-      });
-      alert("NetWork Error! ) " + response.status);
-    }
-
-    const { items } = await response.json();
-
-    dispatch({
-      type: "FETCH_USERS",
-      payload: items,
-    });
-  };
-
   //get specific user
   const getUser = async (login) => {
     Startload();
@@ -79,7 +52,6 @@ export const GithubContextProvider = ({ children }) => {
     );
 
     const data = await response.json();
-    console.log(data);
 
     dispatch({
       type: "FETCH_USER_REPOS",
@@ -117,12 +89,9 @@ export const GithubContextProvider = ({ children }) => {
     <React.Fragment>
       <GithubContext.Provider
         value={{
-          users: state.users,
-          loading: state.loading,
-          alert: state.alert,
-          user: state.user,
-          repo: state.repo,
-          searchUsers,
+          ...state,
+          dispatch,
+          Startload,
           getUserRepo,
           clearUsers,
           setAlert,
