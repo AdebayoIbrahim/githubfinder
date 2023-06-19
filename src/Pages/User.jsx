@@ -21,18 +21,15 @@ const User = () => {
         type: "FETCH_USER",
         payload: result,
       });
-    }
-    async function fetchRepo() {
-      const result = await getUserRepo(params.login);
+      const resultRepo = await getUserRepo(params.login);
       dispatch({
         type: "FETCH_USER_REPOS",
-        payload: result,
+        payload: resultRepo,
       });
     }
+
     fetchUser();
-    fetchRepo();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, params.login]);
 
   //Destructuring datas
 

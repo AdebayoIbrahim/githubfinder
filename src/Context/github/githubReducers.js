@@ -12,7 +12,7 @@ const GithubReducer = (state, action) => {
     case "CLEAR_USERS":
       return {
         ...state,
-        users: action.data,
+        users: [],
       };
     case "NET_ERR":
       return {

@@ -13,18 +13,9 @@ export const GithubContextProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
-  const Startload = () => {
-    dispatch({
-      type: "LOADING",
-    });
-  };
+
   //clearing data in states
-  const clearUsers = () => {
-    dispatch({
-      type: "CLEAR_USERS",
-      data: [],
-    });
-  };
+
   //set alert state
   const setAlert = (msg) => {
     dispatch({
@@ -43,8 +34,6 @@ export const GithubContextProvider = ({ children }) => {
         value={{
           ...state,
           dispatch,
-          Startload,
-          clearUsers,
           setAlert,
         }}
       >
