@@ -20,7 +20,7 @@ function App() {
         }}
       >
         <Navbar />
-        <Box pb={10} mt={3} pt={5}>
+        <Box pb={10} mt={3} pt={5} sx={{ margin: { xl: "auto" } }}>
           <main>
             <Routes>
               <Route path="/" element={<Home />}></Route>

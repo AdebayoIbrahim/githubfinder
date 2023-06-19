@@ -35,7 +35,7 @@ function Navbar({ title }) {
         zIndex: "999",
 
         background: "rgb(51, 39, 39)",
-        paddingInline: ".7em",
+        paddingInline: { lg: ".7em", xl: "13em" },
       }}
     >
       <Styledbar>

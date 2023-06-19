@@ -53,7 +53,11 @@ const User = () => {
   return loading ? (
     <Spinner />
   ) : (
-    <Box ml={{ xs: 0, sm: 5 }} mr={{ xs: 0, sm: 4 }} pl={{ xs: 0, sm: 3 }}>
+    <Box
+      ml={{ sm: 5, xs: 2, sm: 3 }}
+      mr={{ sm: 4, xs: 2, sm: 3 }}
+      pl={{ xs: 1, sm: 3 }}
+    >
       <Box mb={1}>
         <Button component={Link} to="/">
           Previous
@@ -64,7 +68,7 @@ const User = () => {
           <Box
             sx={{
               position: "relative",
-              transform: { xs: "translateX(30%)", sm: "none" },
+              marginInline: { xs: "auto", sm: "auto" },
             }}
           >
             <figure>
@@ -95,7 +99,7 @@ const User = () => {
           </Box>
         </Grid>
         <Grid item lg={8}>
-          <Box pl={3} width="100%">
+          <Box width="100%">
             <Stack direction="row" alignItems="center" gap={{ xs: 6, sm: 7 }}>
               <h1>{name}</h1>
 
@@ -144,7 +148,7 @@ const User = () => {
                 Github Profile
               </Button>
             </Box>
-            <Box pt={2} sx={{ width: "100%" }}>
+            <Box pt={2} pl={{ xs: 2, sm: 2 }} sx={{ width: "100%" }}>
               <Grid container spacing={0}>
                 {location && (
                   <Grid item xl={2} lg={4} md={4} sm={6} xs={12}>
