@@ -19,10 +19,11 @@ const GithubReducer = (state, action) => {
         ...state,
         loading: false,
       };
-    case "FETCH_USER":
+    case "FETCH_USER_AND_REPO":
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
+        repo: action.payload.repo,
         loading: false,
       };
     case "CALL_ALERT":
@@ -35,12 +36,7 @@ const GithubReducer = (state, action) => {
         ...state,
         alert: null,
       };
-    case "FETCH_USER_REPOS":
-      return {
-        ...state,
-        repo: action.payload,
-        loading: false,
-      };
+
     default:
       return state;
   }

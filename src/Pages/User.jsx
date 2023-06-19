@@ -6,7 +6,7 @@ import { Box, Button, Grid, Typography, Badge, Stack } from "@mui/material";
 import Spinner from "../Components/layout/spinner";
 import { Paper } from "../Components/shared/Card";
 import RepoList from "../Components/repo/repoList";
-import { getUserRepo, getUser } from "../Context/github/githubActions";
+import { getUserAndRepo } from "../Context/github/githubActions";
 const User = () => {
   const { user, loading, repo, dispatch } = useContext(GithubContext);
   const params = useParams();
@@ -16,15 +16,10 @@ const User = () => {
       type: "LOADING",
     });
     async function fetchUser() {
-      const result = await getUser(params.login);
+      const result = await getUserAndRepo(params.login);
       dispatch({
-        type: "FETCH_USER",
+        type: "FETCH_USER_AND_REPO",
         payload: result,
-      });
-      const resultRepo = await getUserRepo(params.login);
-      dispatch({
-        type: "FETCH_USER_REPOS",
-        payload: resultRepo,
       });
     }
 
