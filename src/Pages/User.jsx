@@ -6,14 +6,21 @@ import { Box, Button, Grid, Typography, Badge, Stack } from "@mui/material";
 import Spinner from "../Components/layout/spinner";
 import { Paper } from "../Components/shared/Card";
 import RepoList from "../Components/repo/repoList";
+import { getUserRepo } from "../Context/github/githubActions";
 const User = () => {
-  const { user, getUser, loading, repo, getUserRepo } =
-    useContext(GithubContext);
+  const { user, getUser, loading, repo, dispatch } = useContext(GithubContext);
   const params = useParams();
 
   useEffect(() => {
     getUser(params.login);
-    getUserRepo(params.login);
+    async function fetch() {
+      const result = await getUserRepo(params.login);
+      dispatch({
+        type: "FETCH_USER_REPOS",
+        payload: result,
+      });
+    }
+    fetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

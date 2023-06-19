@@ -13,14 +13,22 @@ export const searchUsers = async (value) => {
     },
   });
 
-  //   if (!response.ok) {
-  //     console.log(response.status);
-  //     dispatch({
-  //       type: "NET_ERR",
-  //     });
-  //     alert("NetWork Error! ) " + response.status);
-  //   }
-
   const { items } = await response.json();
   return items;
+};
+
+export const getUserRepo = async (login) => {
+  const params = new URLSearchParams({
+    per_page: 10,
+    sort: "created",
+  });
+
+  const response = await fetch(`${GITHUB_URL}/users/${login}/repos?${params}`, {
+    headers: {
+      Authorization: `token ${GITHUB_TOKEN}`,
+    },
+  });
+
+  const data = await response.json();
+  return data;
 };
