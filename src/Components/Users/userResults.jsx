@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext} from "react";
 import Spinner from "../layout/spinner";
 import { Box, Grid } from "@mui/material";
 import UserItem from "./userItem";
