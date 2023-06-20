@@ -54,8 +54,8 @@ const User = () => {
     <Spinner />
   ) : (
     <Box
-      ml={{ sm: 5, xs: 2, sm: 3 }}
-      mr={{ sm: 4, xs: 2, sm: 3 }}
+      ml={{ sm: 5, xs: 2, }}
+      mr={{ sm: 4, xs: 2, }}
       pl={{ xs: 1, sm: 3 }}
     >
       <Box mb={1}>
