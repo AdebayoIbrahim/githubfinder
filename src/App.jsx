@@ -26,7 +26,7 @@ function App() {
               <Route path="/" element={<Home />}></Route>
               <Route path="/about" element={<About />}></Route>
               <Route path="/user/:login" element={<User />}></Route>
-              <Route path="/*" element={<Notfound />}></Route>
+              <Route path="*" element={<Notfound />}></Route>
             </Routes>
           </main>
         </Box>
