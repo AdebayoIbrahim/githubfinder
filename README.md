@@ -1,8 +1,9 @@
 
 
 ## Clone This Repo
+`git clone https://github.com/AdebayoIbrahim/githubfinder.git`
 
-In the project directory, you can run:
+In the project directory,run:
 
 ### `npm i`
 
