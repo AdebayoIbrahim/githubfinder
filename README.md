@@ -10,4 +10,4 @@ In the project directory,run:
 Run the app by running
 ### `npm start`
 
-## URL (https://github-finder-react-app-v2.netlify.app/)
+## Url (https://github-finder-react-app-v2.netlify.app/)
