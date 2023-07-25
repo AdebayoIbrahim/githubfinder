@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import UserResults from "../Components/Users/userResults";
 import UserSearch from "../Components/Users/userSearch";
 import Alert from "../Components/layout/Alert";
+import Searchvalue from "../Components/layout/Searchvalue";
 function Home() {
   return (
     <>
@@ -13,6 +14,7 @@ function Home() {
       </Helmet>
       <Alert />
       <UserSearch />
+      <Searchvalue />
       <UserResults />
     </>
   );

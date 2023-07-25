@@ -5,7 +5,7 @@ import { AiOutlineClear } from "react-icons/ai";
 import { searchUsers } from "../../Context/github/githubActions";
 const UserSearch = () => {
   const [value, setValue] = useState("");
-  const { users, setAlert, dispatch } = useContext(GithubContext);
+  const { users, setAlert, dispatch, inputResult } = useContext(GithubContext);
   //getting if users.length !== 0
   const userlength = users.length > 0;
 
@@ -27,6 +27,7 @@ const UserSearch = () => {
         type: "FETCH_USERS",
         payload: user,
       });
+      inputResult(`Search Results For '${value}'`);
       setValue("");
     }
   };
@@ -37,7 +38,7 @@ const UserSearch = () => {
   };
 
   return (
-    <Box pb={5} pl={4} sx={{ marginInline: "3%" }}>
+    <Box pb={3} pl={4} sx={{ marginInline: "3%" }}>
       <Stack
         gap={2}
         direction="row"

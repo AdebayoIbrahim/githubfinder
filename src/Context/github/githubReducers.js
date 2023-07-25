@@ -13,6 +13,7 @@ const GithubReducer = (state, action) => {
       return {
         ...state,
         users: [],
+        result: null,
       };
     case "NET_ERR":
       return {
@@ -36,7 +37,11 @@ const GithubReducer = (state, action) => {
         ...state,
         alert: null,
       };
-
+    case "USERNAME":
+      return {
+        ...state,
+        result: action.payload,
+      };
     default:
       return state;
   }

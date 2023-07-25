@@ -9,6 +9,7 @@ export const GithubContextProvider = ({ children }) => {
     user: {},
     loading: false,
     alert: null,
+    result: null,
     repo: [],
   };
 
@@ -25,6 +26,13 @@ export const GithubContextProvider = ({ children }) => {
     }, 2000);
   };
 
+  const inputResult = (username) => {
+    dispatch({
+      type: "USERNAME",
+      payload: username,
+    });
+  };
+
   return (
     <React.Fragment>
       <GithubContext.Provider
@@ -32,6 +40,7 @@ export const GithubContextProvider = ({ children }) => {
           ...state,
           dispatch,
           setAlert,
+          inputResult,
         }}
       >
         {children}
